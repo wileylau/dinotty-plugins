@@ -1,0 +1,225 @@
+.ogu {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  max-width: 640px;
+  color: var(--fg);
+  font-size: 13px;
+}
+
+.ogu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.ogu-header h2 {
+  margin: 0;
+  font-size: 16px;
+  color: var(--fg-bright, var(--fg));
+}
+
+.ogu-sub {
+  margin: 0;
+  color: var(--fg-muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.ogu-pill {
+  flex: 0 0 auto;
+  padding: 2px 8px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--fg-muted);
+  font-size: 11px;
+}
+
+.ogu-pill.is-ok {
+  color: var(--color-green, #2ecc71);
+  border-color: color-mix(in srgb, var(--color-green, #2ecc71) 45%, transparent);
+}
+
+.ogu-pill.is-error {
+  color: var(--color-red, #e74c3c);
+  border-color: color-mix(in srgb, var(--color-red, #e74c3c) 45%, transparent);
+}
+
+.ogu-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg-surface, var(--bg));
+}
+
+.ogu-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-weight: 600;
+}
+
+.ogu-label {
+  color: var(--fg-muted);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.ogu-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ogu-row.wrap {
+  flex-wrap: wrap;
+}
+
+.ogu-input {
+  flex: 1;
+  min-width: 160px;
+  padding: 6px 9px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  color: var(--fg);
+  background: var(--bg);
+  font-family: var(--font-mono, monospace);
+  font-size: 12px;
+}
+
+.ogu-input.is-small {
+  flex: 0 0 84px;
+  min-width: 84px;
+}
+
+.ogu-input:focus {
+  outline: none;
+  border-color: var(--accent, #89b4fa);
+}
+
+.ogu-select {
+  padding: 6px 8px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  color: var(--fg);
+  background: var(--bg);
+  font-size: 12px;
+}
+
+.ogu-btn {
+  padding: 6px 11px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  color: var(--fg);
+  background: var(--bg);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.ogu-btn:hover:not(:disabled) {
+  border-color: color-mix(in srgb, var(--accent, #89b4fa) 50%, var(--border));
+}
+
+.ogu-btn:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.ogu-btn.is-primary {
+  color: var(--bg, #111);
+  background: var(--accent, #89b4fa);
+  border-color: var(--accent, #89b4fa);
+  font-weight: 600;
+}
+
+.ogu-btn.is-danger {
+  color: var(--color-red, #e74c3c);
+}
+
+.ogu-muted {
+  margin: 0;
+  color: var(--fg-muted);
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.ogu-error {
+  margin: 0;
+  padding: 8px 10px;
+  border: 1px solid color-mix(in srgb, var(--color-red, #e74c3c) 40%, transparent);
+  border-radius: 8px;
+  color: var(--color-red, #e74c3c);
+  background: color-mix(in srgb, var(--color-red, #e74c3c) 8%, transparent);
+  font-size: 12px;
+  white-space: pre-wrap;
+}
+
+.ogu-window {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ogu-window-head,
+.ogu-window-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.ogu-window-head strong {
+  font-variant-numeric: tabular-nums;
+}
+
+.ogu-window-foot {
+  color: var(--fg-muted);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
+.ogu-bar {
+  height: 6px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--fg-muted) 18%, transparent);
+}
+
+.ogu-bar-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent, #89b4fa);
+  transition: width 200ms ease;
+}
+
+.ogu-bar-fill.ogu-warn {
+  background: var(--color-yellow, #f39c12);
+}
+
+.ogu-bar-fill.ogu-danger {
+  background: var(--color-red, #e74c3c);
+}
+
+.ogu-window-head .ogu-warn {
+  color: var(--color-yellow, #f39c12);
+}
+
+.ogu-window-head .ogu-danger {
+  color: var(--color-red, #e74c3c);
+}
+
+.ogu-check {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--fg-muted);
+  font-size: 12px;
+  cursor: pointer;
+}

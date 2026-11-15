@@ -1,0 +1,26 @@
+{
+  "id": "opencode-go-usage",
+  "name": "OpenCode Go Usage",
+  "version": "0.2.2",
+  "description": "OpenCode Go plan usage (5h rolling / weekly / monthly), estimated spend and live current session cost in the status bar. Session cost follows opencode tab views and prompt completions via its local event stream.",
+  "icon": "gauge",
+  "entry": "./main.js",
+  "styles": "./styles.css",
+  "category": "ai",
+  "showInToolbar": true,
+  "permissions": ["native.execute", "workspace.read"],
+  "bin": {
+    "mode": "cli",
+    "entries": {
+      "windows-x86_64": "bin/opencode-go-usage.cmd",
+      "linux-x86_64": "bin/opencode-go-usage.sh",
+      "linux-aarch64": "bin/opencode-go-usage.sh",
+      "macos-x86_64": "bin/opencode-go-usage.sh",
+      "macos-aarch64": "bin/opencode-go-usage.sh"
+    }
+  },
+  "commands": [
+    { "id": "opencode-go-usage.open", "title": "OpenCode Go usage" },
+    { "id": "opencode-go-usage.refresh", "title": "Refresh OpenCode Go usage" }
+  ]
+}
