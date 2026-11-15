@@ -54,7 +54,8 @@ The key is stored as JSON under Dinotty's plugin data directory
   the cost immediately; `session.viewed` alone only fires when a view clears an
   unread idle transition, so it is now a fast path rather than the only source.
 - Cost accuracy is whatever opencode reports. Models without pricing metadata
-  (for example `opencode-go` models) legitimately report `$0`.
+  (for example `opencode-go` models) report `$0`; the status bar then omits the
+  cost segment instead of showing `$0`, and the popover row shows `—`.
 - **Live session cost** can be turned off in the plugin tab. It only controls
   the event stream; plan usage polling and the five-minute session reconcile
   keep working, so the cost falls back to one refresh per polling interval.

@@ -89,6 +89,14 @@ export async function activate(ctx) {
     return `$${n.toFixed(2)}`
   }
 
+  // A free model (or a session with no billing metadata) reports cost 0. That is
+  // not a price worth showing: the status bar only renders a cost segment for a
+  // positive value, and the popover row shows `—`.
+  function sessionCost(value) {
+    const n = Number(value?.cost)
+    return Number.isFinite(n) && n > 0 ? n : null
+  }
+
   function countdown(iso) {
     const at = Date.parse(iso || '')
     if (!Number.isFinite(at)) return '—'
@@ -684,9 +692,12 @@ export async function activate(ctx) {
         })
       }
     }
+    const cost = sessionCost(session.value)
     rows.push({
       label: L('Session cost', '会话花费'),
-      value: session.value ? `${money(session.value.cost)} · ${truncate(session.value.title, 24)}` : '—',
+      value: session.value
+        ? `${cost === null ? '—' : money(cost)} · ${truncate(session.value.title, 24)}`
+        : '—',
     })
     rows.push({
       label: L('Plan caps', '套餐上限'),
@@ -713,12 +724,13 @@ export async function activate(ctx) {
     showChart: false,
     statusText: () => {
       if (!hasKey.value) return null
-      const cost = session.value ? money(session.value.cost) : '—'
+      const cost = sessionCost(session.value)
+      const suffix = cost === null ? '' : ` | ${money(cost)}`
       const current = usage.value
-      if (!current) return `${error.value ? 'Go !' : 'Go …'} | ${cost}`
+      if (!current) return `${error.value ? 'Go !' : 'Go …'}${suffix}`
       const rolling = fmtPct(current.rolling)
       const plan = compact.value ? `Go ${rolling}%` : `Go 5h ${rolling}%`
-      return `${plan} | ${cost}`
+      return `${plan}${suffix}`
     },
     detail: () => detailRows(),
   }

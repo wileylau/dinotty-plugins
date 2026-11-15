@@ -1,7 +1,7 @@
 {
   "id": "opencode-go-usage",
   "name": "OpenCode Go Usage",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "OpenCode Go plan usage (5h rolling / weekly / monthly), estimated spend and live current session cost in the status bar. Session cost follows opencode tab views and prompt completions via its local event stream.",
   "icon": "gauge",
   "entry": "./main.js",
